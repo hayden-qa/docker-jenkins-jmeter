@@ -10,6 +10,13 @@ pipeline {
     }
 
     stages {
+        stage('Prepare') {
+            steps {
+                sh 'rm -f results.jtl'
+                sh 'rm -rf reports'
+            }
+        }
+
         stage('Run JMeter') {
             steps {
                 script {
